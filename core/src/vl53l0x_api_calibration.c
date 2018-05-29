@@ -30,16 +30,15 @@
 #include "vl53l0x_api_core.h"
 #include "vl53l0x_api_calibration.h"
 
+/* RIOT includes */
+#include "log.h"
+
+#define ENABLE_DEBUG    (0)
+#include "debug.h"
+
 #ifndef __KERNEL__
 #include <stdlib.h>
 #endif
-
-#define LOG_FUNCTION_START(fmt, ...) \
-	_LOG_FUNCTION_START(TRACE_MODULE_API, fmt, ##__VA_ARGS__)
-#define LOG_FUNCTION_END(status, ...) \
-	_LOG_FUNCTION_END(TRACE_MODULE_API, status, ##__VA_ARGS__)
-#define LOG_FUNCTION_END_FMT(status, fmt, ...) \
-	_LOG_FUNCTION_END_FMT(TRACE_MODULE_API, status, fmt, ##__VA_ARGS__)
 
 #define REF_ARRAY_SPAD_0  0
 #define REF_ARRAY_SPAD_5  5
@@ -295,7 +294,7 @@ VL53L0X_Error VL53L0X_set_offset_calibration_data_micro_meter(VL53L0X_DEV Dev,
 	int16_t cOffsetRange = 4096;
 	uint32_t encodedOffsetVal;
 
-	LOG_FUNCTION_START("");
+	LOG_DEBUG("START: %s\n", __func__);
 
 	if (OffsetCalibrationDataMicroMeter > cMaxOffsetMicroMeter)
 		OffsetCalibrationDataMicroMeter = cMaxOffsetMicroMeter;
@@ -319,7 +318,7 @@ VL53L0X_Error VL53L0X_set_offset_calibration_data_micro_meter(VL53L0X_DEV Dev,
 		VL53L0X_REG_ALGO_PART_TO_PART_RANGE_OFFSET_MM,
 		encodedOffsetVal);
 
-	LOG_FUNCTION_END(Status);
+	LOG_DEBUG("END: %s\n", __func__);
 	return Status;
 }
 
