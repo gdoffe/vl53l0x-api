@@ -755,7 +755,6 @@ VL53L0X_Error VL53L0X_ResetDevice(VL53L0X_DEV Dev)
 		} while (Byte != 0x00);
 	}
 
-	VL53L0X_PollingDelay(Dev);
 
 	/* Release reset */
 	Status = VL53L0X_WrByte(Dev, VL53L0X_REG_SOFT_RESET_GO2_SOFT_RESET_N,
@@ -769,7 +768,6 @@ VL53L0X_Error VL53L0X_ResetDevice(VL53L0X_DEV Dev)
 		} while (Byte == 0x00);
 	}
 
-	VL53L0X_PollingDelay(Dev);
 
 	/* Set PAL State to VL53L0X_STATE_POWERDOWN */
 	if (Status == VL53L0X_ERROR_NONE)

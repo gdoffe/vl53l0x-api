@@ -82,7 +82,6 @@ VL53L0X_Error VL53L0X_measurement_poll_for_completion(VL53L0X_DEV Dev)
 			break;
 		}
 
-		VL53L0X_PollingDelay(Dev);
 	} while (1);
 
 	LOG_FUNCTION_END(Status);
@@ -252,7 +251,6 @@ VL53L0X_Error VL53L0X_get_info_from_device(VL53L0X_DEV Dev, uint8_t option)
 		Status |= VL53L0X_WrByte(Dev, 0xFF, 0x07);
 		Status |= VL53L0X_WrByte(Dev, 0x81, 0x01);
 
-		Status |= VL53L0X_PollingDelay(Dev);
 
 		Status |= VL53L0X_WrByte(Dev, 0x80, 0x01);
 

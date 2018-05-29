@@ -220,13 +220,11 @@ VL53L0X_Error VL53L0X_UpdateByte(VL53L0X_DEV Dev, uint8_t index, uint8_t AndData
  * A typical multi-thread or RTOs implementation is to sleep the task for some 5ms (with 100Hz max rate faster polling is not needed)
  * if nothing specific is need you can define it as an empty/void macro
  * @code
- * #define VL53L0X_PollingDelay(...) (void)0
  * @endcode
  * @param Dev       Device Handle
  * @return  VL53L0X_ERROR_NONE        Success
  * @return  "Other error code"    See ::VL53L0X_Error
  */
-VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev); /* usually best implemented as a real function */
 
 /** @} end of VL53L0X_platform_group */
 
