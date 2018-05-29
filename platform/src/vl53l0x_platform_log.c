@@ -18,14 +18,12 @@
  */
 
 
-#include <windows.h>
 #include <stdio.h>    // sprintf(), vsnprintf(), printf()
 
 #ifdef _MSC_VER
 #define snprintf _snprintf
 #endif
 
-#include "vl53l0x_i2c_platform.h"
 #include "vl53l0x_def.h"
 #include "vl53l0x_platform_log.h"
 
