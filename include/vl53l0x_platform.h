@@ -32,6 +32,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vl53l0x_def.h"
 
+/* RIOT includes */
+#include "periph/i2c.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -57,6 +60,7 @@ typedef struct {
     VL53L0X_DevData_t Data;               /*!< embed ST Ewok Dev  data as "Data"*/
 
     /*!< user specific field */
+    i2c_t     I2cDev;                    /*!< i2c bus user specific field */
     uint8_t   I2cDevAddr;                /*!< i2c device address user specific field */
     uint8_t   comms_type;                /*!< Type of comms : VL53L0X_COMMS_I2C or VL53L0X_COMMS_SPI */
     uint16_t  comms_speed_khz;           /*!< Comms speed [kHz] : typically 400kHz for I2C           */
