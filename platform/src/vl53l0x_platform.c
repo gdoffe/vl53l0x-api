@@ -126,10 +126,8 @@ VL53L0X_Error VL53L0X_WriteMulti(VL53L0X_DEV Dev, uint8_t index, uint8_t *pdata,
     }
 
 VL53L0X_WriteMulti_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
+
     return Status;
 }
 
@@ -159,10 +157,7 @@ VL53L0X_Error VL53L0X_ReadMulti(VL53L0X_DEV Dev, uint8_t index, uint8_t *pdata, 
     }
 
 VL53L0X_ReadMulti_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
 
     return Status;
 }
@@ -188,10 +183,8 @@ VL53L0X_Error VL53L0X_WrByte(VL53L0X_DEV Dev, uint8_t index, uint8_t data){
     }
 
 VL53L0X_WrByte_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
+
     return Status;
 }
 
@@ -220,10 +213,7 @@ VL53L0X_Error VL53L0X_WrWord(VL53L0X_DEV Dev, uint8_t index, uint16_t data){
     }
 
 VL53L0X_WrWord_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
 
     return Status;
 }
@@ -255,10 +245,7 @@ VL53L0X_Error VL53L0X_WrDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t data){
     }
 
 VL53L0X_WrDWord_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
 
     return Status;
 }
@@ -295,10 +282,7 @@ VL53L0X_Error VL53L0X_UpdateByte(VL53L0X_DEV Dev, uint8_t index, uint8_t AndData
     }
 
 VL53L0X_UpdateByte_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
 
     return Status;
 }
@@ -324,10 +308,7 @@ VL53L0X_Error VL53L0X_RdByte(VL53L0X_DEV Dev, uint8_t index, uint8_t *data){
     }
 
 VL53L0X_RdByte_err:
-    status_int = i2c_release(i2cDev);
-	if (status_int != 0) {
-		Status = VL53L0X_ERROR_CONTROL_INTERFACE;
-    }
+    i2c_release(i2cDev);
 
     return Status;
 }
